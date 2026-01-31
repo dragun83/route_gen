@@ -53,7 +53,7 @@ args = parser.parse_args()
 if args.ssh:
     SSHClient = setup_ssh(args.ssh, args.ssh_port, args.ssh_user, args.ssh_pass )
     for ip in get_ipv4_addresses(args.Hostname):
-        command = '/ip route add dst-address=' + ip + '/32 gateway=' + args.Gate +'comment=\"' + args.Hostname + '\"'
+        command = '/ip route add dst-address=' + ip + '/32 gateway=' + args.Gate +' comment=\"' + args.Hostname + '\"'
         print("SENDING: " + command)
         stdin,  stdout,  stderr = SSHClient.exec_command(command)
         out = stdout.read()
